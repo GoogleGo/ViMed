@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+<!--    REMOVE LATER ^-->
+</head>
+
+<header>
+    <h1>ViMED</h1>
+</header>
+
+<body>
+    <form class="form" method="post">
+        <label class="labelTitle">Symptoms (Pick 3)</label>
+        <p>{{ message }}</p>
+<!--        Start of symptom checkboxes-->
+        <div class="column">
+            {% for symptom in smts: %}
+            <label>{{symptom}}</label>
+            <input type="checkbox" name="symptoms" value="{{ symptom }}"/>
+            <br>
+            {% endfor %}
+        </div>
+<!--        End of symptom checkboxes-->
+
+        <input type="submit" name="submit" value="Upload">
+    </form>
+</body>
+
+</html>

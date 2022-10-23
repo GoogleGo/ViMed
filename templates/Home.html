@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ViMED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+
+<header>
+    <div style="float: left; cursor: pointer" onclick="location.href='/'">
+        <h1>ViMED</h1>
+        <p style="font-size: 1.2rem; margin-top: -32px;">Vision. Intelligence. Medicine.</p>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/credits">Credits</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <br><br><br>
+    <p style="max-width: 75%; margin-left: 12.5%; text-align: center; font-size: 1.2rem;">ViMED is a medical predictor that takes images and creates a prediction for a diagnosis. It is 100% online, confidential, and automated, with no data being saved at any time.</p>
+
+    <br><hr style="width: 75%; background-color: var(--border-color); border: none; height: 3px">
+
+    <br><br><br>
+
+    <div class="animationContainer">
+        <h1 style="text-align: center">Why Choose ViMED</h1>
+        <br>
+        <div class="column" style="text-align: center; margin: 2% 10% 2%; overflow: hidden">
+            <div class="columnBox slideDown" style="--speed: 0.5">
+                <img src="{{ url_for('static', filename='eye.jpg') }}" alt="icon1" style="width: 75px; height: 75px">
+                <h3>Fast Predictions in Seconds</h3>
+                <p>Our algorithms analyze what you give us, and return results in seconds. Each model has been tailored for the task at hand, and will give you accurate predictions in real time.</p>
+            </div>
+            <div class="columnBox slideDown" style="--speed: 0.5; --delay: 0.2">
+                <img src="{{ url_for('static', filename='Phone.jpg') }}" alt="icon2" style="width: 75px; height: 75px">
+                <h3>100% Online, No data saved</h3>
+                <p>All you have to do is upload, and click submit! Everything is handled by our software as we work to get the prediction back to you. Once we're done, the data is deleted off our servers.</p>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <div class="animationContainer">
+        <h1 class="slideDown" style="text-align: center; --speed: 0.75; --delay: 1">Integrations</h1>
+        <div class="appBox animationContainer">
+            <div class="appTile slideDown" style="--speed: 0.5; --delay: 1.2" onclick="location.href='/SkinCancerDetector';">
+                <h3>General Skin Cancer Detection</h3>
+                <hr>
+                <p>Do you have a rash, mole, or bump that keeps growing in size? Take a close-up image of it to get a list of possible cancers it may be.</p>
+            </div>
+            <div class="appTile slideDown" style="--speed: 0.5; --delay: 1.4" onclick="location.href='/MelanomaImageDetector';">
+                <h3>Melanoma Skin Cancer Detection</h3>
+                <hr>
+                <p>The most serious type of skin cancer is Melanoma. It is normally characterized by a change in an existing mole, and the development of an unusually pigmented growth. If this applies, please upload a close-up image to get a medical prediction.</p>
+            </div>
+            <div class="appTile slideDown" style="--speed: 0.5; --delay: 1.6" onclick="location.href='/CovidXrayDetector';">
+                <h3>COVID Chest Xray Detection</h3>
+                <hr>
+                <p>Do you have a chest X-ray? Are you wondering if you had COVID at that time? Upload a picture for a COVID-19 analysis.</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<footer>
+    <p style="text-align: center">Created by Aiden Moy - District NJ12</p>
+</footer>
+
+</html>

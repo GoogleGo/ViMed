@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | ViMED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/model.css') }}">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+
+<header>
+    <div style="float: left; cursor: pointer" onclick="location.href='/'">
+        <h1>ViMED</h1>
+        <p style="font-size: 1.2rem; margin-top: -32px;">Vision. Intelligence. Medicine.</p>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/credits">Credits</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <h1 style="text-align: center">About</h1>
+    <div class="explanation">
+        <p>Each of the models are built using Tensorflow. For the image processing models, we use Convolutional neural networks, each one specially trained for the task at hand. The model depicted below is an example of the model used for XRAY analysis and Melanoma analysis. These models can be adapted for a wide range of tasks. The Convolution works by creating mathematical "filters" in the picture, where it will highlight and emphasize important shapes, features, or edges. Multiple passthroughs of convolutional layers can produce extremely helpful and important filters, to correctly answer our task.</p>
+    </div>
+    <canvas id="canvas">
+
+    </canvas>
+
+
+
+    <script src="{{ url_for('static', filename='about.js') }}"></script>
+</body>
+</html>

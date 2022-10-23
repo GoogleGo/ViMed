@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credits | ViMED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+
+<header>
+    <div style="float: left; cursor: pointer" onclick="location.href='/'">
+        <h1>ViMED</h1>
+        <p style="font-size: 1.2rem; margin-top: -32px;">Vision. Intelligence. Medicine.</p>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/credits">Credits</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <br><br><br>
+    <div class="animationContainer">
+        <h1 class="slideDown" style="text-align: center; --speed: 0.75;">Credits/Citations</h1>
+        <br>
+        <div class="appBox animationContainer">
+            <div class="appTile slideDown" style="--speed: 0.5; --delay: 0.2; background-color: var(--background-color)" onclick="location.href='https://doi.org/10.7910/DVN/DBW86T';">
+                <h3>HAM 10,000 - Harvard</h3>
+                <hr>
+                <h4>Licence</h4>
+                <p>Creative Commons Attribution-NonCommercial 4.0</p>
+                <h4>Author</h4>
+                <p>Philipp Tschandl</p>
+            </div>
+            <div class="appTile slideDown" style="--speed: 0.5; --delay: 0.4; background-color: var(--background-color)" onclick="location.href='https://www.kaggle.com/datasets/hasnainjaved/melanoma-skin-cancer-dataset-of-10000-images';">
+                <h3>Melanoma Skin Cancer Detection</h3>
+                <hr>
+                <h4>Licence</h4>
+                <p>CC0 1.0 Public Domain Dedication</p>
+                <h4>Author</h4>
+                <p>Muhammad Hasnain Javid on Kaggle</p>
+            </div>
+            <div class="appTile slideDown" style="--speed: 0.5; --delay: 0.6; background-color: var(--background-color)" onclick="location.href='https://www.kaggle.com/datasets/fusicfenta/chest-xray-for-covid19-detection';">
+                <h3>COVID Chest Xray Detection</h3>
+                <hr>
+                <h4>Licence</h4>
+                <p>Database Contents Licence v1.0</p>
+                <h4>Author</h4>
+                <p>Fusic Fenta on Kaggle</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID Xray Detector | ViMED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+
+<header>
+    <div style="float: left; cursor: pointer" onclick="location.href='/'">
+        <h1>ViMED</h1>
+        <p style="font-size: 1.2rem; margin-top: -32px;">Vision. Intelligence. Medicine.</p>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/credits">Credits</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <br>
+    <div class="progressFormContainer">
+        {% if not pred %}
+        <div class="progressBar">
+            <div class="progressShape" style="background-color: gray" id="progress1">Upload</div>
+            <div class="progressShape" style="background-color: lightgray" id="progress2">Processing</div>
+            <div class="progressShape" style="background-color: lightgray" id="progress3">Results</div>
+        </div>
+        <br>
+        <form class="form" method="post" enctype="multipart/form-data">
+    <!--        Include upload, and checkboxes for the diseases-->
+            <label class="labelTitle">COVID-19 Xray Detector</label>
+            <p>Please upload an image of a chest xray, similar to the one below:</p>
+            <img src="{{ url_for('static', filename='CovidNormalXrayExample.jpeg') }}" alt="covid-xray-example" style="width: 16%;">
+            <p style="max-width: 40%">The aspect ratio should not affect the analysis of the xray, and can be in portrait or landscape dimensions.</p>
+            <hr style="width: 75%; background-color: var(--border-color); border: none; height: 3px">
+            <p id="message">{{ message }}</p>
+            <input type="file" id="image" name="image">
+            <br>
+            <input type="submit" onclick="document.getElementById('progress1').style.backgroundColor = 'lightgray'; document.getElementById('progress2').style.backgroundColor = 'gray'; document.getElementById('message').innerText = 'Processing Image...'">
+            <br>
+        </form>
+        {% else %}
+        <div class="progressBar">
+            <div class="progressShape" style="background-color: lightgray"></div>
+            <div class="progressShape" style="background-color: lightgray"></div>
+            <div class="progressShape" style="background-color: gray"></div>
+        </div>
+        <br>
+        <div class="centerDiv">
+            <h2>Results</h2>
+            <b>{{ predictions }}% Chance of displaying symptoms of COVID</b>
+            {% if predictions < 40 %}
+                <p>You are not likely to have/had COVID.</p>
+            {% elif 60 > predictions >= 40 %}
+                <p>There is a possibility that you have/had COVID</p>
+            {% else %}
+                <p>You are likely to have/had COVID.</p>
+            {% endif %}
+            <hr>
+            <h3>Disclaimer</h3>
+            <p>The results from the Analysis are only predictions, and are not substitutes for seeing a doctor. Please seek medical attention for a proper diagnosis.</p>
+        </div>
+        <br><br>
+        {% endif %}
+    </div>
+</body>
+</html>

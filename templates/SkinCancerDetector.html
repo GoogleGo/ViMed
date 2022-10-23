@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ViMED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+
+<header>
+    <div style="float: left; cursor: pointer" onclick="location.href='/'">
+        <h1>ViMED</h1>
+        <p style="font-size: 1.2rem; margin-top: -32px;">Vision. Intelligence. Medicine.</p>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/credits">Credits</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <br>
+    <div class="progressFormContainer">
+        {% if not pred %}
+        <div class="progressBar">
+            <div class="progressShape" style="background-color: gray" id="progress1">Upload</div>
+            <div class="progressShape" style="background-color: lightgray" id="progress2">Processing</div>
+            <div class="progressShape" style="background-color: lightgray" id="progress3">Results</div>
+        </div>
+        <br>
+        <form class="form" method="post" enctype="multipart/form-data">
+    <!--        Include upload, and checkboxes for the diseases-->
+            <label class="labelTitle">General Skin Cancer Detection</label>
+            <p>Please upload a close up image. It should be roughly in the center, and should be a surface picture of the effected area. </p>
+            <p id="message">{{ message }}</p>
+            <input type="file" id="image" name="image">
+            <select id="localization" name="localization">
+                {% for localization in localizations %}
+                    <option value="{{ localization }}">{{ localization }}</option>
+                {% endfor %}
+            </select>
+            <input type="number" name="age" placeholder="Age">
+            <select name="sex" >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="unknown">Unspecified</option>
+            </select>
+            <br>
+            <input type="submit" onclick="document.getElementById('progress1').style.backgroundColor = 'lightgray'; document.getElementById('progress2').style.backgroundColor = 'gray'; document.getElementById('message').innerText = 'Processing Image...'">
+            <br>
+        </form>
+        {% else %}
+        <div class="progressBar">
+            <div class="progressShape" style="background-color: lightgray"></div>
+            <div class="progressShape" style="background-color: lightgray"></div>
+            <div class="progressShape" style="background-color: gray"></div>
+        </div>
+        <br>
+        <div class="centerDiv">
+            <h2>Results</h2>
+            <b>It could be {{ predictions }}</b>
+            <hr>
+            <h3>Disclaimer</h3>
+            <p>The results from the Analysis are only predictions, and are not substitutes for seeing a doctor. Please seek medical attention for a proper diagnosis.</p>
+        </div>
+        <br><br>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+/*https://colorhunt.co/palette/92b4ecffffffffe69affd24c*/
+:root {
+    --background-color: #ffffff;
+    --faded-background-color: #f3f3f3;
+    --title-clor: #ffffff;
+    --text-color: #000000;
+    --border-color: #ffc855;
+    --border-color-highlight: #92B4EC;
+    --button: #ffbb12;
+    --button-highlight: #ff9e1a;
+    --totalColumns: 3;
+    --totalRows: 1;
+
+    --scrollbar-color: #00a5ff;
+    --scrollbar-color-hover: #03dbff;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+
+    background-image: url("../../static/Banner3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+
+    width: 100%;
+    height: 11rem;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    font-size: 1.8rem;
+    margin-top: -40px;
+    margin-left: -20px;
+    color: var(--title-clor);
+
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    float: right;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-right: 60px;
+    padding: 0;
+}
+
+nav li {
+    margin-top: 1.8rem;
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+}
+
+body {
+    background-color: var(--background-color);
+    width: 100%;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+form {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input[type=file] {
+    border-radius: 5px;
+    border: 2px solid var(--border-color-highlight);
+    padding: 10px;
+}
+
+input[type=submit] {
+    border-radius: 5px;
+    border: 2px solid var(--button-highlight);
+    padding: 10px;
+    background-color: var(--button-highlight);
+    color: #000;
+    font-size: 150%;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-color-hover);
+}
+
+.labelTitle {
+    font-size: 150%;
+    color: #000;
+}
+
+.column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 1rem;
+    width: 75%;
+    margin-left: 12.5%;
+}
+
+.columnBox {
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--border-color-highlight);
+    border-radius: 2px;
+    font-size: clamp(1.2rem, 1.2rem, 1.5rem);
+    width: clamp(90%, 80%, 60%);
+    margin-left: clamp(5%, 10%, 20%);
+    page-break-inside: avoid;
+    word-wrap: break-word;
+}
+
+.centerDiv {
+    text-align: center;
+    padding: 10px;
+}
+
+.appBox {
+    display: grid;
+    grid-template-columns: repeat(var(--totalColumns), 1fr);
+    grid-template-rows: repeat(var(--totalRows), 1fr);
+    gap: 1rem;
+    width: 75%;
+    margin-left: 12.5%;
+}
+
+.appTile {
+    border: 2px solid var(--border-color-highlight);
+    background-color: var(--border-color-highlight);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: clamp(1.2rem, 1.2rem, 1.7rem);
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.progressFormContainer {
+    background-color: var(--faded-background-color);
+    width: clamp(80%, 60%, 80%);
+    margin-left: clamp(10%, 20%, 10%);
+    padding-right: 5px; /* slight offset, prevent overflow here */
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+}
+
+.progressBar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-height: 15px;
+}
+
+.progressShape {
+    height: 100%;
+    width: 100%;
+    border: 2px black solid;
+    border-radius: 7px;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .appBox {
+        --totalColumns: 1;
+        --totalRows: 3;
+    }
+
+    .columnBox {
+        font-size: 0.8rem;
+    }
+
+    input[type=file] {
+        width: 80%;
+    }
+
+    nav {
+        display: none;
+    }
+}
